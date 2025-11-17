@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="brand"><div class="logo"></div><h1>Admin</h1></div>
+      <div class="nav"><a href="index.html">Home</a></div>
+    </div>
+
+    <div class="card padded">
+      <h3>Admin Login</h3>
+      <form onsubmit="handleAdminLogin(event)">
+        <label class="label">Username</label>
+        <input class="input" required name="username">
+        <label class="label">Password</label>
+        <input class="input" required type="password" name="password">
+        <div style="height:12px"></div>
+        <button class="btn">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="admin.js"></script>
+</body>
+</html>

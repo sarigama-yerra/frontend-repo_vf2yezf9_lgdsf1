@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>User Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="brand"><div class="logo"></div><h1>User</h1></div>
+      <div class="nav"><a href="index.html">Home</a></div>
+    </div>
+
+    <div class="grid cols-2">
+      <div class="card padded">
+        <h3>Login</h3>
+        <form onsubmit="handleUserLogin(event)">
+          <label class="label">Email</label>
+          <input name="email" class="input" required type="email" placeholder="you@example.com">
+          <label class="label">Password</label>
+          <input name="password" class="input" required type="password" placeholder="••••••••">
+          <div style="height:12px"></div>
+          <button class="btn block">Login</button>
+        </form>
+      </div>
+
+      <div class="card padded">
+        <h3>Register</h3>
+        <form onsubmit="handleUserRegister(event)">
+          <label class="label">Name</label>
+          <input name="name" class="input" required>
+          <label class="label">Email</label>
+          <input name="email" class="input" required type="email">
+          <label class="label">Password</label>
+          <input name="password" class="input" required type="password">
+          <div style="height:12px"></div>
+          <button class="btn block">Create Account</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="user.js"></script>
+</body>
+</html>

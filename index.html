@@ -1,18 +1,51 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Flames App</title>
-    <link rel="icon" type="image/x-icon" href="favicon.svg">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Manrope:wght@300;400;500;600;700;800&family=IBM+Plex+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.0.0/dist/fonts/geist-sans/style.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/geist@1.0.0/dist/fonts/geist-mono/style.css">
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>QR Coupon & Points System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="brand"><div class="logo"></div><h1>QR Coupons</h1></div>
+      <div class="nav">
+        <a href="user-login.html">User</a>
+        <a href="dealer-login.html">Dealer</a>
+        <a href="admin-login.html">Admin</a>
+      </div>
+    </div>
+
+    <section class="hero">
+      <div class="card padded">
+        <span class="badge">Scan • Redeem • Earn</span>
+        <h2 class="title">QR Coupon, Wallet Points & Dealer Redemption</h2>
+        <p class="subtitle">Mobile-friendly, serverless system powered by Google Sheets and Apps Script. Use QR codes to redeem points, dealers to deduct for orders, and a secure admin dashboard to manage everything.</p>
+        <div class="row">
+          <a class="btn" href="user-login.html">User Login</a>
+          <a class="btn secondary" href="dealer-login.html">Dealer Login</a>
+          <a class="btn secondary" href="admin-login.html">Admin Login</a>
+        </div>
+      </div>
+      <div class="card padded">
+        <h3>Quick Redeem</h3>
+        <p class="small">Have a coupon QR? Open the link and it will auto-fill below.</p>
+        <form onsubmit="redeemFromPage(event)">
+          <label class="label">Coupon Code</label>
+          <input id="coupon" class="input" placeholder="ABC123" />
+          <div style="height:12px"></div>
+          <button class="btn">Redeem</button>
+          <p class="small">Not logged in? You'll be asked to log in first.</p>
+        </form>
+      </div>
+    </section>
+
+    <div class="footer">© <span id="y"></span> QR Coupons. Serverless by Google Apps Script.</div>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="user.js"></script>
+  <script>document.getElementById('y').textContent=new Date().getFullYear(); autofillCoupon();</script>
+</body>
 </html>

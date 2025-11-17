@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dealer Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="brand"><div class="logo"></div><h1>Dealer</h1></div>
+      <div class="nav"><a href="index.html">Home</a></div>
+    </div>
+
+    <div class="card padded">
+      <h3>Dealer Login</h3>
+      <form onsubmit="handleDealerLogin(event)">
+        <label class="label">Email</label>
+        <input class="input" required name="email" type="email">
+        <label class="label">Password</label>
+        <input class="input" required name="password" type="password">
+        <div style="height:12px"></div>
+        <button class="btn">Login</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="dealer.js"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Admin Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="brand"><div class="logo"></div><h1>Admin Dashboard</h1></div>
+      <div class="nav"><a href="#" onclick="adminLogout()">Logout</a></div>
+    </div>
+
+    <div class="grid cols-3">
+      <div class="card padded kpi"><div><div class="label">Users</div><div class="value" id="kpiUsers">—</div></div><div class="tag">Total</div></div>
+      <div class="card padded kpi"><div><div class="label">Dealers</div><div class="value" id="kpiDealers">—</div></div><div class="tag">Total</div></div>
+      <div class="card padded kpi"><div><div class="label">Coupons</div><div class="value" id="kpiCoupons">—</div></div><div class="tag">Active</div></div>
+    </div>
+
+    <div class="card padded" style="margin-top:16px">
+      <h3>Manage & Utilities</h3>
+      <div class="grid cols-3">
+        <form onsubmit="addCouponSingle(event)" class="card padded">
+          <h4>Add Single Coupon</h4>
+          <label class="label">Code</label><input id="newCouponCode" class="input" required>
+          <label class="label">Value</label><input id="newCouponValue" class="input" type="number" min="1" required>
+          <div style="height:10px"></div><button class="btn">Add Coupon</button>
+        </form>
+        <form onsubmit="bulkUploadCoupons(event)" class="card padded">
+          <h4>Bulk Coupons</h4>
+          <label class="label">Codes (comma/space/newline separated)</label>
+          <textarea id="bulkCodes" class="input" style="height:120px"></textarea>
+          <label class="label">Value</label><input id="bulkValue" class="input" type="number" min="1" required>
+          <div style="height:10px"></div><button class="btn">Upload</button>
+        </form>
+        <div class="card padded">
+          <h4>Data</h4>
+          <button id="exportAll" class="btn block">Export All (CSV)</button>
+          <div style="height:10px"></div>
+          <button class="btn secondary block" onclick="adminReset()">Reset Data / Clear Logs</button>
+          <hr class="sep"/>
+          <h4>Add Dealer</h4>
+          <label class="label">Dealer Name</label><input id="ad_name" class="input">
+          <label class="label">Email</label><input id="ad_email" class="input" type="email">
+          <label class="label">Password</label><input id="ad_pass" class="input" type="password">
+          <div style="height:10px"></div>
+          <button class="btn block" onclick="addDealerQuick()">Add Dealer</button>
+          <hr class="sep"/>
+          <h4>Admin Settings</h4>
+          <label class="label">New Password</label><input id="admin_new_pass" class="input" type="password">
+          <div style="height:10px"></div>
+          <button class="btn secondary block" onclick="changeAdminPassword()">Change Password</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="card padded" style="margin-top:16px">
+      <h3>Users</h3>
+      <table class="table" id="usersTbl"><thead><tr>
+        <th>User ID</th><th>Name</th><th>Email</th><th>Points</th><th>Actions</th>
+      </tr></thead><tbody></tbody></table>
+    </div>
+
+    <div class="card padded" style="margin-top:16px">
+      <h3>Dealers</h3>
+      <table class="table" id="dealersTbl"><thead><tr>
+        <th>Dealer ID</th><th>Name</th><th>Email</th><th>Actions</th>
+      </tr></thead><tbody></tbody></table>
+    </div>
+
+    <div class="card padded" style="margin-top:16px">
+      <h3>Coupons</h3>
+      <table class="table" id="couponsTbl"><thead><tr>
+        <th>Code</th><th>Value</th><th>Used</th><th>Used By</th><th>Actions</th>
+      </tr></thead><tbody></tbody></table>
+    </div>
+
+    <div class="card padded" style="margin-top:16px">
+      <h3>Transactions</h3>
+      <table class="table" id="txTbl"><thead><tr>
+        <th>Date</th><th>User ID</th><th>Dealer ID</th><th>Type</th><th>Amount</th><th>Order ID</th><th>Old Bal</th><th>New Bal</th>
+      </tr></thead><tbody></tbody></table>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="admin.js"></script>
+  <script>loadAdminDashboard();</script>
+</body>
+</html>

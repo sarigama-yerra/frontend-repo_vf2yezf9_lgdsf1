@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dealer Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="brand"><div class="logo"></div><h1>Dealer Dashboard</h1></div>
+      <div class="nav"><a href="#" onclick="dealerLogout()">Logout</a></div>
+    </div>
+
+    <div class="card padded">
+      <h3>Fetch User Wallet</h3>
+      <form class="row" onsubmit="fetchUserWallet(event)">
+        <div style="flex:1">
+          <label class="label">User ID</label>
+          <input id="lookupUserId" class="input" placeholder="U001" required>
+        </div>
+        <div>
+          <button class="btn" style="margin-top:28px">Fetch</button>
+        </div>
+      </form>
+      <hr class="sep"/>
+      <div class="grid cols-3">
+        <div class="card padded kpi"><div><div class="label">Old Balance</div><div id="oldBalance" class="value">-</div></div><div class="tag">Points</div></div>
+        <div class="card padded kpi"><div><div class="label">New Balance</div><div id="newBalance" class="value">-</div></div><div class="tag">Points</div></div>
+        <div class="card padded">
+          <h4>Deduct</h4>
+          <form onsubmit="dealerDeduct(event)">
+            <label class="label">Amount</label>
+            <input id="deductAmount" class="input" type="number" min="1" required>
+            <label class="label">Order ID</label>
+            <input id="orderId" class="input" placeholder="ORD-1001" required>
+            <div style="height:10px"></div>
+            <button class="btn block">Confirm Deduction</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <script src="script.js"></script>
+  <script src="dealer.js"></script>
+</body>
+</html>

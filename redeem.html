@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Redeem Coupon</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="brand"><div class="logo"></div><h1>Redeem</h1></div>
+      <div class="nav"><a href="user-login.html">User</a></div>
+    </div>
+
+    <div class="card padded">
+      <h2 class="title">Redeem QR Coupon</h2>
+      <p class="subtitle">If you opened from QR, your code is auto-filled.</p>
+      <form onsubmit="redeemFromPage(event)">
+        <label class="label">Coupon Code</label>
+        <input id="coupon" class="input" placeholder="ABC123" />
+        <div style="height:12px"></div>
+        <button class="btn">Redeem</button>
+      </form>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="user.js"></script>
+  <script>autofillCoupon();</script>
+</body>
+</html>

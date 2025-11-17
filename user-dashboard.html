@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>User Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <div class="brand"><div class="logo"></div><h1>User Dashboard</h1></div>
+      <div class="nav"><a href="#" onclick="userLogout()">Logout</a></div>
+    </div>
+
+    <div class="grid cols-3">
+      <div class="card padded kpi"><div>
+        <div class="label">Wallet Points</div><div id="wallet" class="value">-</div>
+      </div><div class="tag">Points</div></div>
+      <div class="card padded">
+        <h3>Redeem Coupon</h3>
+        <form onsubmit="redeemFromPage(event)">
+          <input id="coupon" class="input" placeholder="ABC123" />
+          <div style="height:12px"></div>
+          <button class="btn">Redeem</button>
+        </form>
+      </div>
+      <div class="card padded">
+        <h3>Profile</h3>
+        <div class="small" id="profileBox"></div>
+      </div>
+    </div>
+
+    <div class="card padded" style="margin-top:16px">
+      <div class="row" style="justify-content:space-between;align-items:center">
+        <h3>Last 10 Transactions</h3>
+      </div>
+      <table class="table">
+        <thead><tr>
+          <th>Date</th><th>Type</th><th>Amount</th><th>Order ID</th><th>Old Bal</th><th>New Bal</th>
+        </tr></thead>
+        <tbody id="txBody"></tbody>
+      </table>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="user.js"></script>
+  <script>
+    (function(){
+      const sess = getSession('user');
+      if(sess && sess.profile){
+        const p = sess.profile;
+        document.getElementById('profileBox').textContent = `${p.Name||''} • ${p.Email||''} • ID: ${p.UserID||''}`;
+      }
+    })();
+    renderUserDashboard();
+  </script>
+</body>
+</html>
